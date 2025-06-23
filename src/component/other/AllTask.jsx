@@ -11,7 +11,7 @@ const AllTask = () => {
 };
 
      useEffect(() => {
-    axios.get('http://localhost:3000/getdata')
+    axios.get('https://ems-api-o1q9.onrender.com/getdata')
       .then(response => {
         setEmployees(response.data);
       })

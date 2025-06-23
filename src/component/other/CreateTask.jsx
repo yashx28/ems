@@ -35,7 +35,7 @@ const CreateTask = () => {
     };
 
     try {
-      const res = await axios.post('http://localhost:3000/assign-task', {
+      const res = await axios.post('https://ems-api-o1q9.onrender.com/assign-task', {
         email: formData.employeeEmail,
         task
       });
