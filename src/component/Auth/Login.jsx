@@ -1,6 +1,6 @@
   import React from 'react'
   import {useState } from 'react';
-  import { setUserData } from '../../utils/localstorage'; 
+import { setUserData } from '../../utils/localstorage';
   import axios from 'axios'
   import { useNavigate } from 'react-router-dom'
   const Login = () => {
