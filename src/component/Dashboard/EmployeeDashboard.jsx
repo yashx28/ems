@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../other/Header'
 import TasklistNumber from '../other/TasklistNumber'
 import Tasklist from '../Tasklist/Tasklist'
-import { getUserData} from '../../utils/localstorage'
+import { getUserData  } from '../../utils/localStorage'
 import { useEffect } from 'react'
 const EmployeeDashboard = () => {
   const user =  getUserData();
