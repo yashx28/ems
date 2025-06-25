@@ -21,7 +21,6 @@ const CreateTask = () => {
   const handleAssignTask = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.employeeEmail || !formData.title || !formData.description) {
       setStatusMessage('Please fill all required fields.');
       return;
@@ -56,11 +55,11 @@ const CreateTask = () => {
 
   return (
     <div className="mt-5 bg-[#1C1C1C] text-white p-6 rounded-lg shadow-lg max-w-5xl mx-auto">
-      <form onSubmit={handleAssignTask} className="flex flex-wrap justify-between gap-6">
-        <div className="flex flex-col w-[45%]">
+      <form onSubmit={handleAssignTask} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col space-y-3">
           <label>Task Title</label>
           <input
-            className="mb-3 p-2 rounded bg-transparent border-2 border-gray-400"
+            className="p-2 rounded bg-transparent border-2 border-gray-400"
             type="text"
             name="title"
             placeholder="Make a UI Design"
@@ -70,7 +69,7 @@ const CreateTask = () => {
 
           <label>Date</label>
           <input
-            className="mb-3 p-2 rounded bg-transparent border-2 border-gray-400"
+            className="p-2 rounded bg-transparent border-2 border-gray-400"
             type="date"
             name="dueDate"
             value={formData.dueDate}
@@ -79,7 +78,7 @@ const CreateTask = () => {
 
           <label>Categories</label>
           <input
-            className="mb-3 p-2 rounded bg-transparent border-2 border-gray-400"
+            className="p-2 rounded bg-transparent border-2 border-gray-400"
             type="text"
             name="category"
             placeholder="Design, Dev, etc."
@@ -89,7 +88,7 @@ const CreateTask = () => {
 
           <label>Employee Name</label>
           <input
-            className="mb-3 p-2 rounded bg-transparent border-2 border-gray-400"
+            className="p-2 rounded bg-transparent border-2 border-gray-400"
             type="text"
             name="employeeName"
             placeholder="Employee Name"
@@ -99,7 +98,7 @@ const CreateTask = () => {
 
           <label>Employee Email</label>
           <input
-            className="mb-3 p-2 rounded bg-transparent border-2 border-gray-400"
+            className="p-2 rounded bg-transparent border-2 border-gray-400"
             type="email"
             name="employeeEmail"
             placeholder="Employee Email"
@@ -109,10 +108,10 @@ const CreateTask = () => {
           />
         </div>
 
-        <div className="flex flex-col w-[45%]">
+        <div className="flex flex-col space-y-3">
           <label>Description</label>
           <textarea
-            className="mb-3 p-2 rounded bg-transparent border-2 border-gray-400"
+            className="p-2 rounded bg-transparent border-2 border-gray-400 resize-none"
             name="description"
             placeholder="Task description here..."
             rows={8}
@@ -122,13 +121,13 @@ const CreateTask = () => {
 
           <button
             type="submit"
-            className="py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition"
+            className="py-2 mt-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition"
           >
             Create Task
           </button>
 
           {statusMessage && (
-            <p className="mt-4 text-sm text-yellow-400">{statusMessage}</p>
+            <p className="mt-2 text-sm text-yellow-400">{statusMessage}</p>
           )}
         </div>
       </form>
@@ -137,6 +136,7 @@ const CreateTask = () => {
 };
 
 export default CreateTask;
+
 
 
 

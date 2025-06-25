@@ -29,54 +29,65 @@ const Tasklist = () => {
   };
 
   return (
-    <div id='tasklist' className='flex h-[50%] mt-10 overflow-x-auto gap-3'>
+    <div
+      id="tasklist"
+      className="mt-10 flex flex-wrap md:flex-nowrap overflow-x-auto gap-4 px-4"
+    >
       {user && user.tasks && user.tasks.length > 0 ? (
         user.tasks.map((task, index) => (
-          <div key={index} className={`flex-shrink-0 w-[350px] rounded-xl ${getCardColor(task.status)}`}>
-            <div className='flex justify-between p-4'>
-              <h5 className='bg-red-500 rounded px-2 text-sm capitalize'>High</h5>
-              <p className='text-sm'>{task.dueDate}</p>
+          <div
+            key={index}
+            className={`flex-shrink-0 w-full sm:w-[300px] md:w-[350px] rounded-xl ${getCardColor(task.status)} shadow-md transition-transform duration-300 hover:scale-105`}
+          >
+            <div className="flex justify-between items-center p-4 text-white">
+              <h5 className="bg-red-600 rounded px-2 py-1 text-xs font-semibold uppercase">
+                High
+              </h5>
+              <p className="text-sm">{task.dueDate}</p>
             </div>
-            <h2 className='text-lg ml-4 font-semibold'>{task.title}</h2>
-            <p className='text-sm ml-4 mb-2'>{task.description}</p>
+            <div className="px-4 pb-4 text-white">
+              <h2 className="text-lg font-semibold">{task.title}</h2>
+              <p className="text-sm mb-3">{task.description}</p>
 
-            {/* Dynamic Buttons */}
-            <div className='ml-4 mb-4'>
-              {task.status === 'new' && (
-                <button
-                  onClick={() => updateTaskStatus(index, 'accepted')}
-                  className='bg-white text-black px-3 py-1 rounded'
-                >
-                  Accept Task
-                </button>
-              )}
-              {task.status === 'accepted' && (
-                <>
+              {/* Dynamic Buttons */}
+              <div className="space-x-2">
+                {task.status === 'new' && (
                   <button
-                    onClick={() => updateTaskStatus(index, 'completed')}
-                    className='bg-white text-black px-3 py-1 rounded mr-2'
+                    onClick={() => updateTaskStatus(index, 'accepted')}
+                    className="bg-white text-black px-3 py-1 rounded"
                   >
-                    Complete Task
+                    Accept Task
                   </button>
-                  <button
-                    onClick={() => updateTaskStatus(index, 'failed')}
-                    className='bg-white text-black px-3 py-1 rounded'
-                  >
-                    Fail Task
-                  </button>
-                </>
-              )}
+                )}
+                {task.status === 'accepted' && (
+                  <>
+                    <button
+                      onClick={() => updateTaskStatus(index, 'completed')}
+                      className="bg-white text-black px-3 py-1 rounded"
+                    >
+                      Complete
+                    </button>
+                    <button
+                      onClick={() => updateTaskStatus(index, 'failed')}
+                      className="bg-white text-black px-3 py-1 rounded"
+                    >
+                      Fail
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         ))
       ) : (
-        <p className='text-white ml-4'>No tasks assigned yet.</p>
+        <p className="text-white text-center w-full">No tasks assigned yet.</p>
       )}
     </div>
   );
 };
 
 export default Tasklist;
+
 
 
 
